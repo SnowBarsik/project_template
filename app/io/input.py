@@ -49,7 +49,7 @@ def pandas_file_read(file):
     arguments: string
     return: string
     
-    Reads file if it exists and have one of types: csv, xlsx, json or html as string and than returns.
+    Reads file if it exists and have one of types: csv, xlsx or json as string and than returns.
     """
     data = None
     if os.path.isfile(file):
@@ -57,6 +57,5 @@ def pandas_file_read(file):
             case "csv": data = pd.read_csv(file)
             case "xlsx": data = pd.read_excel(file)
             case "json": data = pd.read_json(file)
-            case "html": data = pd.read_html(file)
-        return data.to_string()
+        return data.to_string(index=False)
     return None
